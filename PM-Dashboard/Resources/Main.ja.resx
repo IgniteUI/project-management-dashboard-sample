@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AssignedResources" xml:space="preserve">
+    <value>割り当てられたリソース</value>
+  </data>
+  <data name="AssignedResources_Chart_Hrs" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="AssignedResources_HrsAvailable" xml:space="preserve">
+    <value>: 利用可能な時間数</value>
+  </data>
+  <data name="AssignedResources_HrsOther" xml:space="preserve">
+    <value>: その他の時間数</value>
+  </data>
+  <data name="AssignedResources_HrsTask" xml:space="preserve">
+    <value>: このタスクの時間数</value>
+  </data>
+  <data name="AssignedResources_Task" xml:space="preserve">
+    <value>タスク #</value>
+  </data>
+  <data name="AssignedResources_Warning" xml:space="preserve">
+    <value>タスクに割り当てられた人はいません。</value>
+  </data>
+  <data name="Details_BaselineBudget" xml:space="preserve">
+    <value>基本予算</value>
+  </data>
+  <data name="Details_HoursPlanned" xml:space="preserve">
+    <value>時間/見積もり時間</value>
+  </data>
+  <data name="Details_PlannedEndDate" xml:space="preserve">
+    <value>予定終了日</value>
+  </data>
+  <data name="Details_ProjectedBudget" xml:space="preserve">
+    <value>推定予算</value>
+  </data>
+  <data name="Details_ProjectedEndDate" xml:space="preserve">
+    <value>予測終了日</value>
+  </data>
+  <data name="Details_TaskProgress" xml:space="preserve">
+    <value>タスクの進行状況</value>
+  </data>
+  <data name="IEAlert_Msg" xml:space="preserve">
+    <value>&lt;span&gt;現在&lt;b&gt;古い&lt;/b&gt;ブラウザーが使用されているため、このアプリケーションはサポートされていません。アプリケーションを表示するには、&lt;a href="http://browsehappy.com/" class="animate-decor-disappear"&gt;ブラウザーをアップグレード&lt;/a&gt;してください。&lt;/span&gt;</value>
+  </data>
+  <data name="Nav_CurrentProjects" xml:space="preserve">
+    <value>進行中</value>
+  </data>
+  <data name="Nav_Starting" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="Nav_Today" xml:space="preserve">
+    <value>今日</value>
+  </data>
+  <data name="Nav_UpcomingProjects" xml:space="preserve">
+    <value>予定</value>
+  </data>
+  <data name="Nav_UserDiscipline" xml:space="preserve">
+    <value>プロジェクト マネージャー</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedDesc" xml:space="preserve">
+    <value>リソースの見積もり時間が作業可能な時間を超えています。</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedMoreDesc" xml:space="preserve">
+    <value>見積もり時間がリソースの作業可能な 40 時間を超えています。</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedMoreTitle" xml:space="preserve">
+    <value>40時間以上の超過割り当て</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedTitle" xml:space="preserve">
+    <value>割り当て時間超過</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedDesc" xml:space="preserve">
+    <value>リソースの稼働時間が見積もり時間を超えています。</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedMoreDesc" xml:space="preserve">
+    <value>リソースの実稼働時間が見積もりの 40 時間を超えています。</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedMoreTitle" xml:space="preserve">
+    <value>40時間以上の超過見積もり</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedTitle" xml:space="preserve">
+    <value>見積もり時間超過</value>
+  </data>
+  <data name="OverviewLegendHelp_Title" xml:space="preserve">
+    <value>チャートの見方</value>
+  </data>
+  <data name="OverviewLegend_OverAllocated" xml:space="preserve">
+    <value>割り当て超過</value>
+  </data>
+  <data name="OverviewLegend_OverPlanned" xml:space="preserve">
+    <value>見積もり時間超過</value>
+  </data>
+  <data name="OverviewLegend_Planned" xml:space="preserve">
+    <value>見積もり時間</value>
+  </data>
+  <data name="OverviewLegend_Worked" xml:space="preserve">
+    <value>作業時間</value>
+  </data>
+  <data name="Overview_CurrentLabel" xml:space="preserve">
+    <value>現在</value>
+  </data>
+  <data name="Overview_Title" xml:space="preserve">
+    <value>稼働時間 vs. 見積もり時間</value>
+  </data>
+  <data name="Overview_Warning" xml:space="preserve">
+    <value>プロジェクトの人数制限は 6 人です</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>読み込んでいます...</value>
+  </data>
+  <data name="PMHeadline_Title" xml:space="preserve">
+    <value>プロジェクト計画</value>
+  </data>
+  <data name="PM_Headline_Proj" xml:space="preserve">
+    <value>プロジェクト #</value>
+  </data>
+  <data name="ProjectTasks" xml:space="preserve">
+    <value>プロジェクト タスク</value>
+  </data>
+  <data name="ProjectTasks_Hours" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ProjectTasks_Hrs" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ProjectTasks_ProjectedEnd" xml:space="preserve">
+    <value>予定終了日</value>
+  </data>
+  <data name="ProjectTasks_ViewFile" xml:space="preserve">
+    <value>ファイルを表示</value>
+  </data>
+  <data name="ProjectTasks_Warning" xml:space="preserve">
+    <value>選択した時間範囲に利用可能なタスクがありません。</value>
+  </data>
+  <data name="Team_Confirm" xml:space="preserve">
+    <value>クリックしてこのリソースを追加</value>
+  </data>
+  <data name="Team_Filter_All" xml:space="preserve">
+    <value>すべてのチーム メンバー</value>
+  </data>
+  <data name="Team_Filter_Dev" xml:space="preserve">
+    <value>開発</value>
+  </data>
+  <data name="Team_Filter_PM" xml:space="preserve">
+    <value>プロジェクト マネジメント</value>
+  </data>
+  <data name="Team_Filter_UX" xml:space="preserve">
+    <value>UX</value>
+  </data>
+  <data name="Team_Filter_Visual" xml:space="preserve">
+    <value>ビジュアル デザイン</value>
+  </data>
+  <data name="Team_HrsAvailable" xml:space="preserve">
+    <value>:利用可能な時間数</value>
+  </data>
+  <data name="Team_Projects" xml:space="preserve">
+    <value>プロジェクト</value>
+  </data>
+  <data name="Team_TitleLabelSelect" xml:space="preserve">
+    <value>追加するチーム メンバーを選択してください。</value>
+  </data>
+  <data name="Team_TitleLabelView" xml:space="preserve">
+    <value>チーム メンバーを表示</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>プロジェクト マネジメント ダッシュボード</value>
+  </data>
+  <data name="ViewLink_Alert_Msg" xml:space="preserve">
+    <value>業務アプリケーションでは、ここに Dropbox などの外部ストレージ サービスにあるアセットの表示やサイト内のその他のページへリンクできます。</value>
+  </data>
+  <data name="ViewLink_Alert_Title" xml:space="preserve">
+    <value>サンプル ダイアログ</value>
+  </data>
+  <data name="Assets_MakeAdjustmentsWireframe" xml:space="preserve">
+    <value>ワイヤーフレームの調整</value>
+  </data>
+  <data name="Asset_AnalyzeInterview" xml:space="preserve">
+    <value>面接データの分析</value>
+  </data>
+  <data name="Asset_DesignPreviews" xml:space="preserve">
+    <value>デザイン プレビュー</value>
+  </data>
+  <data name="Asset_DesignSpecs" xml:space="preserve">
+    <value>デザイン仕様</value>
+  </data>
+  <data name="Asset_FixBugs" xml:space="preserve">
+    <value>バグの修正</value>
+  </data>
+  <data name="Asset_GatherDesign" xml:space="preserve">
+    <value>デザイン要素の収集と準備</value>
+  </data>
+  <data name="Asset_InteractionDoc" xml:space="preserve">
+    <value>インタラクション ドキュメント</value>
+  </data>
+  <data name="Asset_MakeAdjustments" xml:space="preserve">
+    <value>プロトタイプの調整</value>
+  </data>
+  <data name="Asset_MeetingNotes" xml:space="preserve">
+    <value>ミーティング メモ</value>
+  </data>
+  <data name="Asset_PrepInterviewQ" xml:space="preserve">
+    <value>面接の質問準備</value>
+  </data>
+  <data name="Asset_Prototyping" xml:space="preserve">
+    <value>プロトタイプ</value>
+  </data>
+  <data name="Asset_ProvideUpdateLink" xml:space="preserve">
+    <value>プロジェクトの更新されたリンクの提供</value>
+  </data>
+  <data name="Asset_RecordInterviews" xml:space="preserve">
+    <value>面接の記録</value>
+  </data>
+  <data name="Asset_ResearchNotes" xml:space="preserve">
+    <value>リサーチ メモ</value>
+  </data>
+  <data name="Asset_SendDevLink" xml:space="preserve">
+    <value>開発リンクをプロジェクト マネジャーに送信</value>
+  </data>
+  <data name="Asset_UpdateBugReport" xml:space="preserve">
+    <value>バグ リストの更新</value>
+  </data>
+  <data name="Asset_UserFeedbackDoc" xml:space="preserve">
+    <value>ユーザー テストのフィードバックを保存</value>
+  </data>
+  <data name="Asset_UserTestBugs" xml:space="preserve">
+    <value>バグのユーザー テスト</value>
+  </data>
+  <data name="Asset_WireframeSketches" xml:space="preserve">
+    <value>ワイヤーフレーム スケッチ</value>
+  </data>
+  <data name="Asset__UpdateTaskListDoc" xml:space="preserve">
+    <value>タスク リストの更新</value>
+  </data>
+  <data name="Task_AnnotationInteractions" xml:space="preserve">
+    <value>インタラクションの注釈</value>
+  </data>
+  <data name="Task_BackendDev" xml:space="preserve">
+    <value>バックエンド開発</value>
+  </data>
+  <data name="Task_BackendDevII" xml:space="preserve">
+    <value>バックエンド開発 II</value>
+  </data>
+  <data name="Task_DesignResearch" xml:space="preserve">
+    <value>デザイン リサーチ</value>
+  </data>
+  <data name="Task_Dev" xml:space="preserve">
+    <value>開発</value>
+  </data>
+  <data name="Task_DevII" xml:space="preserve">
+    <value>開発 II</value>
+  </data>
+  <data name="Task_DevIII" xml:space="preserve">
+    <value>開発 III</value>
+  </data>
+  <data name="Task_DevResearch" xml:space="preserve">
+    <value>開発研究</value>
+  </data>
+  <data name="Task_DevResearchII" xml:space="preserve">
+    <value>開発研究 II</value>
+  </data>
+  <data name="Task_DevResearchIII" xml:space="preserve">
+    <value>開発研究 III</value>
+  </data>
+  <data name="Task_DevResearchIV" xml:space="preserve">
+    <value>開発研究 IV</value>
+  </data>
+  <data name="Task_DevResearchV" xml:space="preserve">
+    <value>開発研究 V</value>
+  </data>
+  <data name="Task_FinalizeDev" xml:space="preserve">
+    <value>開発の完了</value>
+  </data>
+  <data name="Task_FinalReview" xml:space="preserve">
+    <value>最終レビューと発売</value>
+  </data>
+  <data name="Task_FrontendDev" xml:space="preserve">
+    <value>フロントエンド開発</value>
+  </data>
+  <data name="Task_FrontendDevII" xml:space="preserve">
+    <value>フロントエンド開発 II</value>
+  </data>
+  <data name="Task_ProjectReview" xml:space="preserve">
+    <value>プロジェクト レビュー</value>
+  </data>
+  <data name="Task_StakeholderInterviews" xml:space="preserve">
+    <value>関係者の面接</value>
+  </data>
+  <data name="Task_UserTesting" xml:space="preserve">
+    <value>ユーザー テスト</value>
+  </data>
+  <data name="Task_UserTestingFix" xml:space="preserve">
+    <value>ユーザー テストとバグ修正</value>
+  </data>
+  <data name="Task_UserTestingFixII" xml:space="preserve">
+    <value>ユーザー テストとバグ修正 II</value>
+  </data>
+  <data name="Task_VisualDesign" xml:space="preserve">
+    <value>ビジュアル デザイン</value>
+  </data>
+  <data name="Task_VisualDesignII" xml:space="preserve">
+    <value>ビジュアル デザイン II</value>
+  </data>
+  <data name="Task_Wireframing" xml:space="preserve">
+    <value>ワイヤーフレーム</value>
+  </data>
+  <data name="Task_WireframingII" xml:space="preserve">
+    <value>ワイヤーフレーム II</value>
+  </data>
+</root>

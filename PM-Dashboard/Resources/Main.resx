@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AssignedResources" xml:space="preserve">
+    <value>Assigned Resources</value>
+  </data>
+  <data name="AssignedResources_HrsAvailable" xml:space="preserve">
+    <value>hrs available</value>
+  </data>
+  <data name="AssignedResources_HrsOther" xml:space="preserve">
+    <value>hrs other</value>
+  </data>
+  <data name="AssignedResources_HrsTask" xml:space="preserve">
+    <value>hrs this task</value>
+  </data>
+  <data name="AssignedResources_Task" xml:space="preserve">
+    <value>task #</value>
+  </data>
+  <data name="AssignedResources_Warning" xml:space="preserve">
+    <value>Sorry, but no one has been assigned to this task.</value>
+  </data>
+  <data name="Details_BaselineBudget" xml:space="preserve">
+    <value>baseline budget</value>
+  </data>
+  <data name="Details_HoursPlanned" xml:space="preserve">
+    <value>hours/planned</value>
+  </data>
+  <data name="Details_PlannedEndDate" xml:space="preserve">
+    <value>planned end date</value>
+  </data>
+  <data name="Details_ProjectedBudget" xml:space="preserve">
+    <value>projected budget</value>
+  </data>
+  <data name="Details_ProjectedEndDate" xml:space="preserve">
+    <value>projected end date</value>
+  </data>
+  <data name="Details_TaskProgress" xml:space="preserve">
+    <value>task progress</value>
+  </data>
+  <data name="IEAlert_Msg" xml:space="preserve">
+    <value>&lt;span&gt;Unfortuantely, you are using an &lt;b&gt;outdated&lt;/b&gt; browser and some element for this app are not supported. Please &lt;a href="http://browsehappy.com/" class="animate-decor-disappear"&gt;upgrade your browser&lt;/a&gt; to view.&lt;/span&gt;</value>
+  </data>
+  <data name="Nav_CurrentProjects" xml:space="preserve">
+    <value>current</value>
+  </data>
+  <data name="Nav_Starting" xml:space="preserve">
+    <value>starting</value>
+  </data>
+  <data name="Nav_Today" xml:space="preserve">
+    <value>today</value>
+  </data>
+  <data name="Nav_UpcomingProjects" xml:space="preserve">
+    <value>upcoming</value>
+  </data>
+  <data name="Nav_UserDiscipline" xml:space="preserve">
+    <value>Project Manager</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedDesc" xml:space="preserve">
+    <value>Resource has more hours planned than available</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedMoreDesc" xml:space="preserve">
+    <value>Resource has more hours planned than available and is over 40 hrs</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedMoreTitle" xml:space="preserve">
+    <value>Over Allocated More Than 40 hrs</value>
+  </data>
+  <data name="OverviewLegendHelp_OverAllocatedTitle" xml:space="preserve">
+    <value>Over Allocated</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedDesc" xml:space="preserve">
+    <value>Resource has worked more than planned</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedMoreDesc" xml:space="preserve">
+    <value>Resource has worked mored than planned and is over 40 hrs</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedMoreTitle" xml:space="preserve">
+    <value>Over Planned hrs more than 40 hrs</value>
+  </data>
+  <data name="OverviewLegendHelp_OverPlannedTitle" xml:space="preserve">
+    <value>Over Planned hrs</value>
+  </data>
+  <data name="OverviewLegendHelp_Title" xml:space="preserve">
+    <value>How To Read the Charts</value>
+  </data>
+  <data name="OverviewLegend_OverAllocated" xml:space="preserve">
+    <value>over allocation</value>
+  </data>
+  <data name="OverviewLegend_OverPlanned" xml:space="preserve">
+    <value>over planned hours</value>
+  </data>
+  <data name="OverviewLegend_Planned" xml:space="preserve">
+    <value>planned</value>
+  </data>
+  <data name="OverviewLegend_Worked" xml:space="preserve">
+    <value>worked</value>
+  </data>
+  <data name="Overview_Title" xml:space="preserve">
+    <value>Worked Hours vs. Planned Hours</value>
+  </data>
+  <data name="Overview_Warning" xml:space="preserve">
+    <value>6 person limit per project</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>please wait...</value>
+  </data>
+  <data name="PMHeadline_Title" xml:space="preserve">
+    <value>ProjectPlanner</value>
+  </data>
+  <data name="PM_Headline_Proj" xml:space="preserve">
+    <value>Proj#</value>
+  </data>
+  <data name="ProjectTasks" xml:space="preserve">
+    <value>Project Tasks</value>
+  </data>
+  <data name="ProjectTasks_Warning" xml:space="preserve">
+    <value>Sorry, there are no tasks available during the selected time frame.</value>
+  </data>
+  <data name="Team_Confirm" xml:space="preserve">
+    <value>Click Again to Confirm Add</value>
+  </data>
+  <data name="Team_Filter_All" xml:space="preserve">
+    <value>All Team Members</value>
+  </data>
+  <data name="Team_Filter_Dev" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Team_Filter_PM" xml:space="preserve">
+    <value>Project Management</value>
+  </data>
+  <data name="Team_Filter_UX" xml:space="preserve">
+    <value>User Experience</value>
+  </data>
+  <data name="Team_Filter_Visual" xml:space="preserve">
+    <value>Visual Design</value>
+  </data>
+  <data name="Team_HrsAvailable" xml:space="preserve">
+    <value>hrs available</value>
+  </data>
+  <data name="Team_Projects" xml:space="preserve">
+    <value>projects</value>
+  </data>
+  <data name="Team_TitleLabelSelect" xml:space="preserve">
+    <value>Select Team Member To Add</value>
+  </data>
+  <data name="Team_TitleLabelView" xml:space="preserve">
+    <value>View Team Members</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Project Management Dashboard</value>
+  </data>
+  <data name="ViewLink_Alert_Msg" xml:space="preserve">
+    <value>In a production app, these links can be used to show assets located on external storage services such as Dropbox or point to another location within the site.</value>
+  </data>
+  <data name="ViewLink_Alert_Title" xml:space="preserve">
+    <value>This is a Sample Application</value>
+  </data>
+  <data name="AssignedResources_Chart_Hrs" xml:space="preserve">
+    <value>hrs</value>
+  </data>
+  <data name="Overview_CurrentLabel" xml:space="preserve">
+    <value>current</value>
+  </data>
+  <data name="ProjectTasks_Hours" xml:space="preserve">
+    <value>hours</value>
+  </data>
+  <data name="ProjectTasks_Hrs" xml:space="preserve">
+    <value>hrs</value>
+  </data>
+  <data name="ProjectTasks_ProjectedEnd" xml:space="preserve">
+    <value>Projected End</value>
+  </data>
+  <data name="ProjectTasks_ViewFile" xml:space="preserve">
+    <value>view file</value>
+  </data>
+  <data name="Assets_MakeAdjustmentsWireframe" xml:space="preserve">
+    <value>Make Adjustments to Wireframe</value>
+  </data>
+  <data name="Asset_AnalyzeInterview" xml:space="preserve">
+    <value>Analyze Interview Data</value>
+  </data>
+  <data name="Asset_DesignPreviews" xml:space="preserve">
+    <value>Design Previews</value>
+  </data>
+  <data name="Asset_DesignSpecs" xml:space="preserve">
+    <value>Design Specs</value>
+  </data>
+  <data name="Asset_FixBugs" xml:space="preserve">
+    <value>Fix Bugs</value>
+  </data>
+  <data name="Asset_GatherDesign" xml:space="preserve">
+    <value>Gather and Prepare Initial Design elements</value>
+  </data>
+  <data name="Asset_InteractionDoc" xml:space="preserve">
+    <value>Interaction Documentation</value>
+  </data>
+  <data name="Asset_MakeAdjustments" xml:space="preserve">
+    <value>Make Adjustments to Prototype</value>
+  </data>
+  <data name="Asset_MeetingNotes" xml:space="preserve">
+    <value>Meeting Notes</value>
+  </data>
+  <data name="Asset_PrepInterviewQ" xml:space="preserve">
+    <value>Prepare Interview Questions</value>
+  </data>
+  <data name="Asset_Prototyping" xml:space="preserve">
+    <value>Prototyping</value>
+  </data>
+  <data name="Asset_ProvideUpdateLink" xml:space="preserve">
+    <value>Provide Updated Link of Project</value>
+  </data>
+  <data name="Asset_RecordInterviews" xml:space="preserve">
+    <value>Record Interviews</value>
+  </data>
+  <data name="Asset_ResearchNotes" xml:space="preserve">
+    <value>Research Notes</value>
+  </data>
+  <data name="Asset_SendDevLink" xml:space="preserve">
+    <value>Send Development Link to Project Manageer</value>
+  </data>
+  <data name="Asset_UpdateBugReport" xml:space="preserve">
+    <value>Update Bug Report</value>
+  </data>
+  <data name="Asset_UserFeedbackDoc" xml:space="preserve">
+    <value>Document Feedback from User Tests</value>
+  </data>
+  <data name="Asset_UserTestBugs" xml:space="preserve">
+    <value>User Test for Bugs</value>
+  </data>
+  <data name="Asset_WireframeSketches" xml:space="preserve">
+    <value>Wireframe sketches</value>
+  </data>
+  <data name="Asset__UpdateTaskListDoc" xml:space="preserve">
+    <value>Update Task List Documentation</value>
+  </data>
+  <data name="Task_AnnotationInteractions" xml:space="preserve">
+    <value>Annotation of Interactions</value>
+  </data>
+  <data name="Task_BackendDev" xml:space="preserve">
+    <value>Back-end Development</value>
+  </data>
+  <data name="Task_BackendDevII" xml:space="preserve">
+    <value>Back-end Development II</value>
+  </data>
+  <data name="Task_DesignResearch" xml:space="preserve">
+    <value>Design Research</value>
+  </data>
+  <data name="Task_Dev" xml:space="preserve">
+    <value>Development</value>
+  </data>
+  <data name="Task_DevII" xml:space="preserve">
+    <value>Development II</value>
+  </data>
+  <data name="Task_DevIII" xml:space="preserve">
+    <value>Development III</value>
+  </data>
+  <data name="Task_DevResearch" xml:space="preserve">
+    <value>Development Research</value>
+  </data>
+  <data name="Task_DevResearchII" xml:space="preserve">
+    <value>Development Research II</value>
+  </data>
+  <data name="Task_DevResearchIII" xml:space="preserve">
+    <value>Development Research III</value>
+  </data>
+  <data name="Task_DevResearchIV" xml:space="preserve">
+    <value>Development Research IV</value>
+  </data>
+  <data name="Task_DevResearchV" xml:space="preserve">
+    <value>Development Research V</value>
+  </data>
+  <data name="Task_FinalizeDev" xml:space="preserve">
+    <value>Finalize Development</value>
+  </data>
+  <data name="Task_FinalReview" xml:space="preserve">
+    <value>Final Review and Launch</value>
+  </data>
+  <data name="Task_FrontendDev" xml:space="preserve">
+    <value>Front-end Development</value>
+  </data>
+  <data name="Task_FrontendDevII" xml:space="preserve">
+    <value>Front-end Development II</value>
+  </data>
+  <data name="Task_ProjectReview" xml:space="preserve">
+    <value>Project Review</value>
+  </data>
+  <data name="Task_StakeholderInterviews" xml:space="preserve">
+    <value>Stakeholder Interviews</value>
+  </data>
+  <data name="Task_UserTesting" xml:space="preserve">
+    <value>User Testing</value>
+  </data>
+  <data name="Task_UserTestingFix" xml:space="preserve">
+    <value>User Testing and Fix Bugs</value>
+  </data>
+  <data name="Task_UserTestingFixII" xml:space="preserve">
+    <value>User Testing and Fix Bugs II</value>
+  </data>
+  <data name="Task_VisualDesign" xml:space="preserve">
+    <value>Visual Design</value>
+  </data>
+  <data name="Task_VisualDesignII" xml:space="preserve">
+    <value>Visual Design II</value>
+  </data>
+  <data name="Task_Wireframing" xml:space="preserve">
+    <value>Wireframing</value>
+  </data>
+  <data name="Task_WireframingII" xml:space="preserve">
+    <value>WireFraming II</value>
+  </data>
+</root>

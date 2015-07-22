@@ -1,0 +1,326 @@
+﻿@using Infragistics.Web.Mvc;
+<!---model PM_Dashboard.Models.ResourceData-->
+@model dynamic
+<!--model Infragistics.Web.Mvc.GridModel-->
+@{
+    ViewBag.Title = @Resources.Main.Title;
+    var currentProject = @Model.data.projects[0];
+}
+
+<script type="text/javascript">
+    // Function To Format 1st Column in Resource Overview during MVC Helper Initialization
+    function formatResourceFirstCol(i, v) {
+        return "<span class=\"swatch " + v.discipline.toLowerCase().replace(" ", "-") + "\"></span>" + Resources.OverviewLabels[v.discipline.toLowerCase().replace(" ", "")];
+    }
+    function parseDate (input, format) {
+        format = format || 'yyyy-mm-dd'; // default format
+        var parts = input.match(/(\d+)/g), fmt = {};
+        // extract date-part indexes from the format
+        format.replace(/(yyyy|dd|mm)/g, function(part) {fmt[part] = ((part === 'dd') ? 2 : ((part === 'mm') ? 1 : 0));});
+        return new Date(parts[fmt.yyyy], parts[fmt.mm]-1, parts[fmt.dd]);
+    }
+
+    var projects = @Html.Raw(Json.Encode(Model.data.projects));
+    var resourceOverview = @Html.Raw(Json.Encode(Model.data.resourceOverview));
+    var employees = @Html.Raw(Json.Encode(Model.data.employees));
+    var taskList = @Html.Raw(Json.Encode(Model.data.taskList));    
+</script>
+
+<div class="modal alert loading">
+    <div>
+        <h1>projectplanner</h1>
+        <div class="swatches">
+            <span class="swatch user-experience"></span><span class="swatch visual-design"></span><span class="swatch project-management"></span><span class="swatch development"></span><span class="swatch user-testing"></span>
+        </div>
+        <p>@Resources.Main.PleaseWait</p>
+    </div>
+</div>
+
+<!-- START PM NAVIGATION PANEL -->
+<div id="pm-dashboard" class="lang-@UICulture.Split('-')[0]">
+    <div id="pm-navigation" class="collapsed navigation-slide">
+        <div class="expand-container"><a href="#" class="btn-expand"><i class="icon-md icon-menu">Expand Navigation</i></a></div>
+        <div class="profile table">
+            <div class="userinfo row">
+                <span class="picture cell valign-mid"><img src="@Url.Content("~/Content/images/employees/0000008.png")" class="img-circle" alt="Richard Kevinson" /></span>
+                <span class="user cell valign-mid hidden-closed">Richard Kevinson<small class="discipline">@Resources.Main.Nav_UserDiscipline</small></span>
+            </div>
+            <div class="date today row-group">
+                <span class="cell">@Resources.Main.Nav_Today</span>
+                <time class="row" datetime=""><span class="date cell">--/--</span><span class="time cell hidden-closed">--:-- -- EST</span></time>
+            </div>
+        </div>
+        <section class="projects current">
+            <h3>@Resources.Main.Nav_CurrentProjects</h3>
+            <ul data-bind="foreach: currentProjects">
+                <li class="table" data-bind="attr: { 'data-projectID': project_id }">
+                    <div class="essentials cell valign-mid">
+                        <div class="doughnut" data-bind="attr: { 'data-task-total': tasks_total, 'data-tasks-complete': tasks_complete, 'data-status': status }"></div>
+                        <span data-bind="text: client_abbr" class="client abbr"></span>
+                    </div>
+                    <div class="details cell valign-mid hidden-closed">
+                        <span data-bind="text: client_name" class="client full"></span>
+                        <span data-bind="text: formatProjecID" class="projectID"></span>
+                    </div>
+                    <div class="details-btn cell valign-mid hidden-closed">
+                        <i class="icon-sm icon-folder"></i>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="projects upcoming">
+            <h3>@Resources.Main.Nav_UpcomingProjects</h3>
+            <ul data-bind="foreach: upcomingProjects.sort(function(a,b) {return (a.start_date > b.start_date) ? 1: -1;})">
+                <li class="table" data-bind="attr: { 'data-projectID': project_id }">
+                    <div class="essentials cell valign-mid">
+                        <div class="date">
+                            <span>@Resources.Main.Nav_Starting</span>
+                            <time data-bind="text: formatStartDate, attr: {'datetime': start_date}"></time>
+                        </div>
+                        <div data-bind="text: client_abbr" class="client abbr"></div>
+                    </div>
+                    <div class="details cell valign-mid hidden-closed">
+                        <span data-bind="text: client_name" class="client full"></span>
+                        <span data-bind="text: formatProjecID" class="projectID"></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <!-- END PM NAVIGATION PANEL -->
+    <!-- START PROJECT PANEL -->
+    <div id="project-panel" class="content" data-projectid="0">
+        <div id="headline" data-bind="attr: { 'data-projectID': project_id }">
+            <div class="expand-container visible-xxs hidden-sm hidden-xs hidden-md hidden-lg"><a href="#" class="btn-expand"><span class="expand icon-md icon-menu">Expand Navigation</span><span class="collapse glyphicon glyphicon-remove"></span></a></div>
+            <h1>projectplanner</h1>
+            <div id="specs">/<span data-bind="text: client_name, css: {'success': (status() === 'ok'), 'warning': (status() === 'warning'), 'danger': status() === 'danger', 'success': (status() === 'ok')}" class="project-name alert"></span><span class="project-id">@Resources.Main.PM_Headline_Proj: <span data-bind="text: project_id" class="id"></span></span></div>
+            <a href="#" class="action slide-team-directory"><span class="icon-md icon-team"></span></a>
+        </div>
+
+        <section id="details" class="table">
+            <h2>Project Details</h2>
+            <div id="planned-budget" class="cell alert visible-lg visible-md visible-sm">
+                <span class="label">@Resources.Main.Details_BaselineBudget</span>
+                <span data-bind="text: budget_format(budget)" class="result">0.00</span>
+            </div>
+            <div id="projected-budget" data-bind="css: {'warning': (status() === 'warning'), 'danger': status() === 'danger', 'success': (status() === 'ok' && budget_projected() < budget())}" class="cell alert">
+                <span class="label">@Resources.Main.Details_ProjectedBudget</span>
+                <span data-bind="text: budget_projected_format(budget_projected)" class="result">0.00</span>
+            </div>
+            <div id="planned-hours-worked" class="cell alert">
+                <span class="label">@Resources.Main.Details_HoursPlanned</span>
+                <span class="result"><span data-bind="text: hours_worked" class="completed">--</span>/<span data-bind="text: hours_planned" class="scheduled">--</span> <span data-bind="text: hrsCompletePercent" class="percent">(--%)</span></span>
+            </div>
+            <div id="planned-tasks" class="cell alert">
+                <span class="label">@Resources.Main.Details_TaskProgress</span>
+                <span class="result"><span data-bind="text: tasks_complete" class="completed">--</span>/<span data-bind="text: tasks_total" class="scheduled">--</span> <span data-bind="text: tasksCompletePercent" class="percent">(--%)</span></span>
+            </div>
+            <div id="planned-end-date" class="cell alert visible-lg visible-md visible-sm">
+                <span class="label">@Resources.Main.Details_PlannedEndDate</span>
+                <span data-bind="text: end_date_format" class="result">--/--/----</span>
+            </div>
+            <div id="projected-end-date" data-bind="css: {'warning': (status() === 'warning'), 'danger': status() === 'danger', 'success': (status() === 'ok' && projected_end_date() < end_date())}" class="cell alert">
+                <span class="label">@Resources.Main.Details_ProjectedEndDate</span>
+                <span data-bind="text: projected_end_date_format" class="result">--/--/----</span>
+            </div>
+        </section>
+
+        <!-- START RESOURCE OVERVIEW SECTION -->
+        <section id="resource-overview">
+            <div id="legend">
+                <h2>@Resources.Main.Overview_Title <small>(@Resources.Main.Overview_Warning)</small></h2>
+                <div id="legend-details" class="table">
+                    <div id="swatches" class="cell">
+                        <span class="worked"><b>@Resources.Main.OverviewLegend_Worked</b><span class="swatch user-experience"></span><span class="swatch visual-design"></span><span class="swatch project-management"></span><span class="swatch development"></span></span>
+                        <span class="planned"><b>@Resources.Main.OverviewLegend_Planned</b><span class="swatch user-experience"></span><span class="swatch visual-design"></span><span class="swatch project-management"></span><span class="swatch development"></span></span>
+                    </div>
+                    <span class="status cell">
+                        <span><b>@Resources.Main.OverviewLegend_OverPlanned</b><span class="swatch danger"></span></span>
+                        <span><b>@Resources.Main.OverviewLegend_OverAllocated</b><span class="swatch warning"></span></span>
+                    </span>
+                    <a href="#" class="action help"><span class="icon-md icon-help"></span></a>
+                </div>
+            </div>
+            <!--Generate Resource Hour Allocation Overview Data Grid with Linear Gauge Integration-->    
+            @(Html.Infragistics().Grid(Model.grid))
+            <div id="legend-help">
+                <h2>@Resources.Main.OverviewLegendHelp_Title</h2>
+                <a href="#" class="action help close-help"><span class="glyphicon glyphicon-remove-circle"></span></a>
+                <ul>
+                    <li>
+                        <div>
+                            <h4>@Resources.Main.OverviewLegendHelp_OverAllocatedTitle</h4>
+                            <p>@Resources.Main.OverviewLegendHelp_OverAllocatedDesc</p>
+                        </div>
+                        <span class="bar"><span class="swatch visual-design w50"></span><span class="swatch visual-design planned w25"></span><span class="swatch warning w10"></span></span>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>@Resources.Main.OverviewLegendHelp_OverPlannedTitle</h4>
+                            <p>@Resources.Main.OverviewLegendHelp_OverPlannedDesc</p>
+                        </div>
+                        <span class="bar"><span class="swatch visual-design w50"></span><span class="swatch danger w25"></span></span>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>@Resources.Main.OverviewLegendHelp_OverAllocatedMoreTitle</h4>
+                            <p>@Resources.Main.OverviewLegendHelp_OverAllocatedMoreDesc</p>
+                        </div>
+                        <span class="bar warning"><span class="swatch visual-design planned w100"></span><span class="overage">+10</span></span>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>@Resources.Main.OverviewLegendHelp_OverPlannedMoreTitle</h4>
+                            <p>@Resources.Main.OverviewLegendHelp_OverPlannedMoreDesc</p>
+                        </div>
+                        <span class="bar danger"><span class="swatch visual-design w100"></span><span class="overage">+10</span></span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- END RESOURCE OVERVIEW SECTION -->
+
+        <!-- START RESOURCE TASK ALLOCATION SECTION -->
+        <section id="resource-task-allocation" class="table">
+            <div id="project-tasks" class="content-list cell">
+                <header><h3>@Resources.Main.ProjectTasks</h3></header>
+                <div id="tasklist-empty-msg" class="hidden alert-empty-msg">
+                    <p>@Resources.Main.ProjectTasks_Warning</p>
+                </div>
+                <!--Generate Project Task List Hierarchical Grid-->    
+                @(Html.Infragistics().Grid(Model.tasks))
+            </div>
+            <div id="project-assignments" class="content-list cell">
+                <header>
+                    <h3>@Resources.Main.AssignedResources</h3>
+                    <ul class="btn-group">
+                        <li><a href="#" class="action add-resource"><i class="icon-md icon-add-team"></i></a></li>
+                        <li><a href="#" class="action undo disabled"><i class="icon-md icon-undo"></i></a></li>
+                        <li><a href="#" class="action approve disabled"><i class="icon-md icon-approve"></i></a></li>
+                    </ul>
+                </header>
+
+                <div id="project-assignments-list-container" class="list">
+                    <!-- ko if: filterTasks().length === 0 -->
+                    <div class="alert-empty-msg" style="display:none;" data-bind="visible: true">
+                        <p>@Resources.Main.AssignedResources_Warning</p>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: filterTasks().length > 0 -->
+                    <ul id="project-assignments-list" class="table resource-list">
+                        <!-- ko foreach: filterTasks, afterRender: updateDoughnutChart -->
+
+                        <li style="display:none;" data-bind="attr: {'data-task-id': task_id, 'data-employee-id': id, 'data-discipline': disciplineCls.toLowerCase(), 'data-task-end': task_end_date, 'data-task-start': task_start_date, 'data-pending-changes': pending_changes(), 'class': ('row ' + disciplineClass() + ((addition_changes()) ? ' addition' : '') + ((addition_new()) ? ' new' : '') + ((pastWeek()) ? ' past-week' : '') + (' ' + status())) }, visible: true">
+                            <div class="user cell valign-mid">
+                                <img data-bind="attr: { 'alt': name, 'src': ('@Url.Content("~/Content/images/employees/")' + id + '.png')}" class="img-circle" />
+                                <a href="#" class="action-toggle-contact"><span class="glyphicon glyphicon-info-sign"></span></a>
+                                <div class="contact">
+                                    <span class="email"><i>e:</i><a class="animate-decor-disappear" data-bind="text:email, attr: {'href': ('mailto:' + email)}"></a></span>
+                                    <span class="phone" data-bind="html: ('<i>c: </i>' + phone)"></span>
+                                </div>
+                                <div class="discipline bg"></div>
+                            </div>
+                            <div class="member cell valign-mid">
+                                <span class="task discipline" data-bind="text: ('@Resources.Main.AssignedResources_Task: ' + task_id)"></span>
+                                <span class="name" data-bind="text: name"></span>
+                                <span class="discipline" data-bind="text: discipline"></span>
+                            </div>
+                            <div class="hours chart cell valign-mid" data-bind="attr: {'data-hrs-task': hrs_on_task, 'data-hrs': hrs_on_project, 'data-other': hrs_on_other}">
+                                <div class="total"><span>40</span>@Resources.Main.AssignedResources_Chart_Hrs</div>
+                            </div>
+                            <div class="hours breakdown cell valign-mid">
+                                <div class="action-adjust-hrs">
+                                    <a href="#" class="add-hrs" data-bind="click: $root.addHours"><i class="icon-md icon-chev-up"></i></a>
+                                    <a href="#" class="subtract-hrs"><i class="icon-md icon-chev-down"></i></a>
+                                </div>
+                                <div class="hrs-overview">
+                                    <span class="hrs-on-task"><b data-bind="text: hrs_on_task"></b> @Resources.Main.AssignedResources_HrsTask</span>
+                                    <span class="hrs-on-other"><b data-bind="text: hrs_all_other"></b> @Resources.Main.AssignedResources_HrsOther</span>
+                                    <span class="hrs-free"><b data-bind="text: hrs_free"></b> @Resources.Main.AssignedResources_HrsAvailable</span>
+                                </div>
+                            </div>
+                            <div class="action-remove cell valign-mid"><a href="#"><i class="icon-md icon-remove"></i><span>Remove</span></a></div>
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </section>
+        <!-- END RESOURCE TASK ALLOCATION SECTION -->
+    </div>
+    <!-- END PROJECT PANEL -->
+    <!-- START TEAM PANEL -->
+    <div id="pm-team-navigation" class="navigation-slide collapsed">
+        <a href="#" class="action close-team-navigation"><span class="glyphicon glyphicon-remove"></span></a>
+        <label>
+            <select>
+                <option value="all">@Resources.Main.Team_Filter_All</option>
+                <option value="visual design">@Resources.Main.Team_Filter_Visual</option>
+                <option value="user experience">@Resources.Main.Team_Filter_UX</option>
+                <option value="project management">@Resources.Main.Team_Filter_PM</option>
+                <option value="development">@Resources.Main.Team_Filter_Dev</option>
+            </select>
+            <p><span class="interactive">@Resources.Main.Team_TitleLabelSelect</span><span class="read-only">@Resources.Main.Team_TitleLabelView</span></p>
+        </label>
+        <ul id="project-team-list" class="table resource-list" data-bind="foreach: employees">
+            <li data-bind="attr: { 'data-employee-id': id, 'data-employee-email': email, 'data-employee-phone': phone, 'data-discipline': disciplineCls.toLowerCase(), 'data-hrs': hours_project(), 'data-other': hours_other(), 'class': ((is_disabled()) ? ('row disabled ' + disciplineClass()) : ('row ' + disciplineClass())) }">
+                <div class="user cell valign-mid">
+                    <img class="img-circle" data-bind="attr: {'src': ('@Url.Content("~/Content/images/employees/")' + id + '.png'), 'alt': name}" />
+                    <div class="discipline bg"></div>
+                    <div class="action confirm-add">
+                        <span>@Resources.Main.Team_Confirm</span>
+                    </div>
+                </div>
+                <div class="member cell valign-mid">
+                    <span data-bind="text: name" class="name"></span>
+                    <span data-bind="text: discipline" class="discipline"></span>
+                </div>
+                <div class="hours breakdown cell valign-mid">
+                    <div class="hrs-overview">
+                        <span class="project-total"><b data-bind="text: assigned_projects"></b> @Resources.Main.Team_Projects</span>
+                        <span class="hrs-free"><b data-bind="text: hours_available"></b> @Resources.Main.Team_HrsAvailable</span>
+                    </div>
+                </div>
+                <div class="selection-notification cell valign-mid">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- END TEAM PANEL -->
+    
+</div>
+
+<div id="asset-alert" class="modal alert bg-opacity85 hidden">
+    <div id="asset-msg-container">
+        <div class="modal-title">@Resources.Main.ViewLink_Alert_Title<a href="#" class="close"><span class="glyphicon glyphicon-remove"></span></a></div>
+        <div class="swatches">
+            <span class="swatch user-experience"></span><span class="swatch visual-design"></span><span class="swatch project-management"></span><span class="swatch development"></span><span class="swatch user-testing"></span>
+        </div>
+        <p>@Resources.Main.ViewLink_Alert_Msg</p>
+    </div>
+</div>
+
+<!--[if lt IE 9]>
+  <div id="ie8-alert" class="modal alert">
+    <div>
+      <h1>projectplanner</h1>
+      <div class="swatches">
+        <span class="swatch user-experience"></span><span class="swatch visual-design"></span><span class="swatch project-management"></span><span class="swatch development"></span><span class="swatch user-testing"></span>
+      </div>
+      <p>@Html.Raw(Resources.Main.IEAlert_Msg)</p>
+    </div>
+  </div>
+<![endif]-->
+
+@{
+    if (File.Exists(Server.MapPath("~/scripts/i18n/locale-" + UICulture.Split('-')[0] + ".js")))
+    {
+        <script src="~/scripts/i18n/locale-@(UICulture.Split('-')[0]).js"></script>
+    }
+    else
+    {
+        <script src="~/scripts/i18n/locale-en.js"></script>
+    }
+}
