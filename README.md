@@ -15,7 +15,6 @@ The Project Management Dashboard sample showcases Ignite UI controls like the [d
 Ignite UI is not just another library created in someone's free time. It is commercial-ready, extremely well-tested, tuned for top performance, designed for good UX, and backed by [Infragistics](http://www.infragistics.com/), an experience-focused company with a track record of over 24 years of experience in providing enterprise-ready, high-performance user interface tools for web, windows and mobile environments.
 
 [![Infragistics Logo](http://infragistics-blogs.github.io/github-assets/logos/infragistics.png)](http://infragistics.com)
-The dashboard view brings together different data points a marketing expert would want to track like sessions, conversions and conversion costs.
 
 
 
